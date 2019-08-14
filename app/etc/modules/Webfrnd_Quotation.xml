@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webfrnd_Quotation>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Webfrnd_Quotation>
+    </modules>
+</config>

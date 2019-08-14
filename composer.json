@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/wf_quotation",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "First Trial Version",
+    "authors": [
+    {
+        "name": "Ankit Jain",
+        "email": "ankitengr@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

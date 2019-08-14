@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <quotation module="quotation">
+            <title>Quotation</title>
+            <sort_order>71</sort_order>               
+            <children>
+                <items module="quotation">
+                    <title>Manage Items</title>
+                    <sort_order>0</sort_order>
+                    <action>quotation/adminhtml_quotation</action>
+                </items>
+            </children>
+        </quotation>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <quotation>
+                        <title>Quotation Module</title>
+                        <sort_order>200</sort_order>
+						<children>
+							<items module="quotation">
+								<title>Manage Items</title>
+								<sort_order>0</sort_order>
+							</items>
+						</children>
+                    </quotation>
+                </children>
+            </admin>
+        </resources>   
+    </acl>
+    <layout>
+        <updates>
+            <quotation>
+                <file>webfrnd_quotation.xml</file>
+            </quotation>
+        </updates>
+    </layout>
+</config>

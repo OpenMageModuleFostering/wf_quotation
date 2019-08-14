@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webfrnd_Quotation>
+            <version>0.1.2</version>
+        </Webfrnd_Quotation>
+    </modules>
+    <frontend>
+        <routers>
+            <quotation>
+                <use>standard</use>
+                <args>
+                    <module>Webfrnd_Quotation</module>
+                    <frontName>quotation</frontName>
+                </args>
+            </quotation>
+        </routers>
+        <layout>
+            <updates>
+                <quotation>
+                    <file>webfrnd_quotation.xml</file>
+                </quotation>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <quotation before="Mage_Adminhtml">Webfrnd_Quotation_Adminhtml</quotation>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <quotation module="quotation">
+                <title>Quotation</title>
+                <sort_order>71</sort_order>               
+                <children>
+                    <items module="quotation">
+                        <title>Manage Quotations</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/quotation</action>
+                    </items>
+                </children>
+            </quotation>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <quotation>
+                            <title>Quotation Module</title>
+                            <sort_order>200</sort_order>
+                        </quotation>
+                    </children>
+                </admin>
+            </resources>   
+        </acl>
+        <layout>
+            <updates>
+                <quotation>
+                    <file>webfrnd_quotation.xml</file>
+                </quotation>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <quotation>
+                <class>Webfrnd_Quotation_Model</class>
+                <resourceModel>quotation_mysql4</resourceModel>
+            </quotation>
+            <quotation_mysql4>
+                <class>Webfrnd_Quotation_Model_Mysql4</class>
+                <entities>
+                    <quotation>
+                        <table>quotation</table>
+                    </quotation>
+                </entities>
+            </quotation_mysql4>
+        </models>
+        <resources>
+            <quotation_setup>
+                <setup>
+                    <module>Webfrnd_Quotation</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </quotation_setup>
+            <quotation_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+ 
+ 
+            </quotation_write>
+            <quotation_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </quotation_read>
+        </resources>
+        <blocks>
+            <quotation>
+                <class>Webfrnd_Quotation_Block</class>
+            </quotation>
+        </blocks>
+        <helpers>
+            <quotation>
+                <class>Webfrnd_Quotation_Helper</class>
+            </quotation>
+        </helpers>
+		<template>
+			<email>
+				<webfrnd_quotation_email_template module="webfrnd_quotation">
+					<label>Webfrnd Quotation Email</label>
+					<file>webfrnd_quotation/quotation_submit.html</file>
+					<type>html</type>
+				</webfrnd_quotation_email_template>
+			</email>
+		</template>
+    </global>
+</config>

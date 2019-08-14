@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <quotation_adminhtml_quotation_index>
+        <reference name="content">
+            <block type="quotation/adminhtml_quotation" name="quotation" />
+        </reference>
+    </quotation_adminhtml_quotation_index>
+	
+	<adminhtml_quotation_selectproducts>
+        <reference name="content">
+            <block type="quotation/adminhtml_selectproducts" name="selectproducts" />
+        </reference>
+    </adminhtml_quotation_selectproducts>
+	
+	<adminhtml_quotation_filldetails>
+        <reference name="content">
+            <block type="quotation/adminhtml_filldetails" name="filldetails" />
+        </reference>
+    </adminhtml_quotation_filldetails>
+	
+	<adminhtml_quotation_review>
+        <reference name="content">
+            <block type="quotation/adminhtml_filldetails" name="review" />
+        </reference>
+    </adminhtml_quotation_review>
+	
+	
+</layout>
