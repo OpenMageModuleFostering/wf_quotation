@@ -288,6 +288,7 @@ class Webfrnd_Quotation_Adminhtml_QuotationController extends Mage_Adminhtml_Con
 
 		 try{
 			 	$mail->send();
+				return true;
 				//Mage::getSingleton('core/session')->addSuccess("Quotation is successfully sent to ". $customerEmail);
 				//$this->_redirect('/quotation/index');
 			 }

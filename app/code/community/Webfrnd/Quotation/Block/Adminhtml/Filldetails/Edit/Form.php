@@ -69,7 +69,8 @@
 						'label'              => Mage::helper('quotation')->__('Customer Email'),
 						'after_element_html' => '<small>Email on which the quotation will send</small>',
 						'tabindex'           => 1,
-						'required'			 => true
+						'required'			 => true,
+						'class'				 => 'required-entry validate-email'
 				));
 				
 			}

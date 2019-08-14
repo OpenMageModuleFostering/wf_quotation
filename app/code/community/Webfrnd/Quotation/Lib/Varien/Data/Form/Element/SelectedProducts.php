@@ -10,6 +10,8 @@ class Webfrnd_Quotation_Lib_Varien_Data_Form_Element_SelectedProducts extends Va
 			$this->edit_id = $edit_id;	
 		}
     }
+	
+	
 
     public function getElementHtml()
     {
@@ -114,6 +116,11 @@ $review = isset($_POST['action']) ? $_POST['action'] : null ;
 
 		}else {
 			
+			$html .= '	<script>
+		
+	</script>
+';
+			
 			if($this->edit_id) {
 				//echo $this->edit_id;	
 				$edit_data = Mage::registry('quotation_data');
@@ -139,9 +146,9 @@ $review = isset($_POST['action']) ? $_POST['action'] : null ;
 				$html .= '<table class="colorblack" align="center" border="0" cellpadding="5" cellspacing="0">
 				
 				<tbody><tr>
-				 <td valign="top" width="35%"><strong>Sell To:</strong><br><textarea name="sell_to" required="required" >'.str_ireplace($breaks, "", $edit_data_content['sell_to']).'</textarea></td>
-				<td valign="top" width="40%"><strong>Ship To:</strong><br><textarea name="ship_to" required="required" >'.str_ireplace($breaks, "", $edit_data_content['ship_to']).'</textarea></td>
-				<td valign="top" width="25%"><strong>Quote Date:</strong> <em><input type="date" name="quote_date" value="'.date('Y-m-d', strtotime($edit_data_content['quote_date'])).'" required="required" /></em><br/><strong>Quoted By:</strong> <em><input type="text" name="quote_by" value="'.$edit_data_content['quote_by'].'" required="required" /></em>
+				 <td valign="top" width="35%"><strong>Sell To:</strong><br><textarea class="required-entry" name="sell_to" >'.str_ireplace($breaks, "", $edit_data_content['sell_to']).'</textarea></td>
+				<td valign="top" width="40%"><strong>Ship To:</strong><br><textarea class="required-entry" name="ship_to" >'.str_ireplace($breaks, "", $edit_data_content['ship_to']).'</textarea></td>
+				<td valign="top" width="25%"><strong>Quote Date:</strong> <em><input class="required-entry" type="date" name="quote_date" value="'.date('Y-m-d', strtotime($edit_data_content['quote_date'])).'" /></em><br/><strong>Quoted By:</strong> <em><input class="required-entry" type="text" name="quote_by" value="'.$edit_data_content['quote_by'].'" /></em>
 				</td>
 				 </tr>
 				
@@ -168,9 +175,9 @@ $review = isset($_POST['action']) ? $_POST['action'] : null ;
 						<input type="hidden" name="prod['.$thisProd['id'].'][id]" value="'.$thisProd['id'].'" />
 						<td class="top" valign="top"><input type="hidden" name="prod['.$thisProd['id'].'][thumbnail]" value="'.$thisProd['thumbnail'].'" /><img src="'.$thisProd['thumbnail'].'" /></td>
 						<td class="top" valign="top"><strong><input type="hidden" name="prod['.$thisProd['id'].'][item]" value="'.$thisProd['item'].'" />'.$thisProd['item'].'</td>
-						<td class="top" valign="top"><input type="text" name="prod['.$thisProd['id'].'][qty]" value="'.$thisProd['qty'].'" required="required"  /></td>
-						<td class="top" valign="top"><textarea name="prod['.$thisProd['id'].'][desc]" required="required" >'.$thisProd['desc'].'</textarea></td>
-						<td class="top" valign="top"><input type="text" name="prod['.$thisProd['id'].'][price]" value="'.number_format($thisProd['price']).'" required="required"  /></td>
+						<td class="top" valign="top"><input class="required-entry validate-number" type="text" name="prod['.$thisProd['id'].'][qty]" value="'.$thisProd['qty'].'" /></td>
+						<td class="top" valign="top"><textarea class="required-entry" name="prod['.$thisProd['id'].'][desc]" >'.$thisProd['desc'].'</textarea></td>
+						<td class="top" valign="top"><input class="required-entry validate-number" type="text" name="prod['.$thisProd['id'].'][price]" value="'.number_format($thisProd['price']).'" /></td>
 					</tr>';
 					
 				 }
@@ -224,9 +231,9 @@ $review = isset($_POST['action']) ? $_POST['action'] : null ;
 				$html .= '<table class="colorblack" align="center" border="0" cellpadding="5" cellspacing="0">
 				
 				<tbody><tr>
-				 <td valign="top" width="35%"><strong>Sell To:</strong><br><textarea name="sell_to" required="required" ></textarea></td>
-				<td valign="top" width="40%"><strong>Ship To:</strong><br><textarea name="ship_to" required="required" ></textarea></td>
-				<td valign="top" width="25%"><strong>Quoted By:</strong> <em><input type="text" name="quote_by" value="'.Mage::getSingleton('admin/session')->getUser()->getUsername().'" required="required" /></em>
+				 <td valign="top" width="35%"><strong>Sell To:</strong><br><textarea class="required-entry" name="sell_to"></textarea></td>
+				<td valign="top" width="40%"><strong>Ship To:</strong><br><textarea class="required-entry" name="ship_to" ></textarea></td>
+				<td valign="top" width="25%"><strong>Quoted By:</strong> <em><input class="required-entry" type="text" name="quote_by" value="'.Mage::getSingleton('admin/session')->getUser()->getUsername().'" /></em>
 				</td>
 				 </tr>
 				
@@ -261,9 +268,9 @@ $review = isset($_POST['action']) ? $_POST['action'] : null ;
 						<input type="hidden" name="prod['.$thisProd->getId().'][id]" value="'.$thisProd->getId().'" />
 						<td class="top" valign="top"><input type="hidden" name="prod['.$thisProd->getId().'][thumbnail]" value="'.$thumbnail.'" /><img src="'.$thumbnail.'" /></td>
 						<td class="top" valign="top"><strong><input type="hidden" name="prod['.$thisProd->getId().'][item]" value="'.$thisProd->getSku().PHP_EOL.'('.$thisProd->getId().')" />'.$thisProd->getSku().'<br />('.$thisProd->getId().')</strong></td>
-						<td class="top" valign="top"><input type="text" name="prod['.$thisProd->getId().'][qty]" value="1" required="required"  /></td>
-						<td class="top" valign="top"><textarea name="prod['.$thisProd->getId().'][desc]" required="required" >'.$thisProd->getName().PHP_EOL.$thisProd->getShortDescription().'</textarea></td>
-						<td class="top" valign="top"><input type="text" name="prod['.$thisProd->getId().'][price]" value="'.number_format($thisProd->getPrice(),2).'" required="required"  /></td>
+						<td class="top" valign="top"><input class="required-entry validate-number" type="text" name="prod['.$thisProd->getId().'][qty]" value="1" /></td>
+						<td class="top" valign="top"><textarea class="required-entry" name="prod['.$thisProd->getId().'][desc]" >'.$thisProd->getName().PHP_EOL.$thisProd->getShortDescription().'</textarea></td>
+						<td class="top" valign="top"><input class="required-entry validate-number" type="text" name="prod['.$thisProd->getId().'][price]" value="'.number_format($thisProd->getPrice(),2).'" /></td>
 					</tr>';
 					
 				 }

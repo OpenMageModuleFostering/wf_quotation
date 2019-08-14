@@ -35,7 +35,7 @@ class Webfrnd_Quotation_Block_Adminhtml_Quotation_Edit_Tab_Formview extends Mage
         	$fieldset->addField('mycustom_element', 'selected_products', array(
             	//'label'         => 'Selected Products',
             	'name'          => 'mycustom_element',
-            	'required'      => false,
+            	'required'      => true,
             	'value'     => $this->getLastEventLabel($lastEvent),
             	'bold'      =>  true,
             	'label_style'   =>  'font-weight: bold;color:red;',
